@@ -11,7 +11,6 @@ import {
   Hero,
 } from "./components";
 import Premium from "./components/Premium";
-import Popular from "./components/Popular";
 
 const App = () => (
   <div className="bg-primary w-full overflow-hidden">
