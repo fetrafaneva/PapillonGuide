@@ -27,7 +27,7 @@ const FeatureCard = ({ icon, title, content, index }) => (
 const Business = () => (
   <section id="features" className={layout.section}>
     <div className={layout.sectionInfo}>
-      <h2 className={styles.heading2}>
+      <h2 className={styles.heading3}>
         Les papillons, <br className="sm:block hidden" /> des ambassadeurs de la
         nature.
       </h2>
