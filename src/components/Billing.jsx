@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   img1,
   img2,
@@ -14,43 +14,26 @@ import {
 
 const Billing = () => {
   const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
-  const [startIndex, setStartIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setStartIndex((prev) => (prev + 5) % images.length);
-    }, 3000); // toutes les 3 secondes (réglable)
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const visibleImages = images
-    .slice(startIndex, startIndex + 3)
-    .concat(images.slice(0, Math.max(0, startIndex + 3 - images.length)));
 
   return (
     <section id="product" className="flex flex-col sm:flex-row gap-6">
-      {/* Grille animée */}
-      <div className="overflow-hidden sm:h-[600px] sm:w-[1000px] transition-all duration-1000 ease-in-out mt-7">
-        <div className="grid-layout animate-flip">
-          {visibleImages.map((img, i) => (
-            <div
-              key={i}
-              className={`item item-${
-                i + 1
-              } flex items-center justify-center bg-black rounded-xl overflow-hidden`}
-            >
+      {/* Zone TV */}
+      <div className="overflow-hidden sm:h-[600px] sm:w-[1000px] mt-7 relative">
+        <div className="tv-frame relative sm:h-[600px] sm:w-[1000px] overflow-hidden rounded-xl border-4 border-black bg-black">
+          <div className="tv-scroll flex flex-col">
+            {[...images, ...images].map((img, i) => (
               <img
+                key={i}
                 src={img}
-                alt={`papillon-${i}`}
-                className="w-full h-full object-cover"
+                alt={"papillon-" + i}
+                className="tv-image mb-4 rounded-lg"
               />
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Texte gardé intact */}
+      {/* Texte */}
       <div className="flex-1 mt-7">
         <h2 className="text-white text-[32px] font-bold">
           Apprenez à reconnaître les papillons autour de vous.
